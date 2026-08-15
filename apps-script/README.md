@@ -65,11 +65,24 @@ o modal envia via `sendBeacon`/`fetch`), sem precisar abrir o navegador nem publ
 
 ## Status atual da integração no site
 
-No código atual (`js/main.js`), o envio do formulário **ainda abre só o WhatsApp** — não existe,
-hoje, nenhuma chamada `fetch`/`sendBeacon` para este endpoint na lógica de submit do formulário
-(não há bloco `FORMULÁRIO -> PLANILHA DO GOOGLE + WHATSAPP`, nem campo honeypot no HTML). O
-rastreio de cliques em WhatsApp (`registrar()`, embutido em `js/main.js`) já está pronto e vai
-funcionar assim que `CFG.sheetUrl` apontar para uma URL `/exec` real — ele grava só na aba
-`Cliques WhatsApp`. A gravação de **leads do formulário** na planilha depende de uma integração
-separada, que segundo o brief está sendo feita por outro desenvolvedor. Detalhes em
-[`../RELATORIO-FORMULARIO.md`](../RELATORIO-FORMULARIO.md).
+Hoje convivem **dois** caminhos de contato no site, e este `.gs` atende os dois:
+
+- **Modal de contato** (`#modal-contato`, disparado por qualquer elemento `data-mc-abrir` —
+  inclusive o botão flutuante de WhatsApp): grava lead via `sendBeacon`/`fetch` em JSON
+  (`e.postData.contents`, lido por `_entrada()`), sempre na aba `Leads`, e só então redireciona
+  para o WhatsApp. **Este é o fluxo que hoje corresponde ao "já funciona" do brief.**
+- **Formulário `#lead`** (seção "Contato" da página): continua só montando o texto e abrindo
+  `wa.me` — não chama este endpoint. Não é o bloco protegido pela regra 1 do brief (esse bloco
+  marcado nunca existiu no código), mas também não foi tocado por esta tarefa.
+- **Rastreio de cliques em WhatsApp** (`registrar()`, embutido em `js/main.js`, delegado no
+  `document` em fase de captura): dispara em qualquer clique num link `a[href*="wa.me"]`,
+  inclusive o botão flutuante, e grava na aba `Cliques WhatsApp` via `tipo: 'clique_whatsapp'`.
+  Depende só de `CFG.sheetUrl` apontar para a URL `/exec` real.
+
+⚠️ Atenção ao ler o histórico: entre a criação deste `.gs` (versão só com `Leads`/`Eventos`/
+`Parcerias`/`Outros`/`Cliques WhatsApp`, sem suporte a JSON) e a versão que veio depois com o
+modal (`_entrada()`, `_waLink()`, relatório semanal), o suporte a `Cliques WhatsApp` foi perdido
+— a versão do modal não tinha mais `_clique()`/`ABA_CLIQUES`. Isso foi restaurado nesta sessão
+(mesclado na versão atual, que já é a que está neste arquivo). Se o `.gs` colado no editor do
+Apps Script for mais antigo que este, o rastreio de cliques vai falhar em silêncio — cole a
+versão deste arquivo por inteiro para os dois fluxos funcionarem juntos.

@@ -11,6 +11,17 @@ var ABAS = {
 };
 var ABA_PADRAO = 'Leads';
 
+// Aba que registra cliques no botão flutuante de WhatsApp (não gera e-mail)
+var ABA_CLIQUES = 'Cliques WhatsApp';
+var COLUNAS_CLIQUE = [
+  ['recebido_em', 'Data e hora'],
+  ['origem',      'Página'],
+  ['botao',       'Botão'],
+  ['dispositivo', 'Dispositivo'],
+  ['referrer',    'Veio de'],
+  ['campanha',    'Campanha (utm)']
+];
+
 var COLUNAS = [
   ['recebido_em', 'Recebido em'],
   ['nome',        'Nome'],
@@ -44,6 +55,9 @@ function doPost(e) {
     var p = _entrada(e);
 
     if (p.empresa) return _ok('ignorado');
+
+    // clique no botão de WhatsApp: só registra, não é um lead
+    if (p.tipo === 'clique_whatsapp') return _clique(p);
 
     if (!p.nome || !p.fone) return _ok('faltam campos');
 
@@ -325,6 +339,55 @@ function _aba(nome) {
   return sh;
 }
 
+// ------------------------------------------------------------------ CLIQUES
+/**
+ * Registra um clique no botão de WhatsApp. Sem e-mail: seria spam.
+ * Serve para responder "quantas pessoas nos chamam sem passar pelo formulário
+ * ou pelo modal" e "de qual página elas saem".
+ */
+function _clique(p) {
+  var sh = _abaClique();
+  var d = {
+    recebido_em: Utilities.formatDate(new Date(), FUSO, 'dd/MM/yyyy HH:mm'),
+    origem:      _limpa(p.origem),
+    botao:       _limpa(p.botao),
+    dispositivo: _limpa(p.dispositivo),
+    referrer:    _limpa(p.referrer),
+    campanha:    _limpa(p.campanha)
+  };
+  sh.appendRow(COLUNAS_CLIQUE.map(function (c) { return d[c[0]] || ''; }));
+  return _ok('clique');
+}
+
+function _abaClique() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(ABA_CLIQUES);
+  if (!sh) {
+    sh = ss.insertSheet(ABA_CLIQUES);
+    sh.appendRow(COLUNAS_CLIQUE.map(function (c) { return c[1]; }));
+    sh.getRange(1, 1, 1, COLUNAS_CLIQUE.length)
+      .setFontWeight('bold').setBackground('#0A1224').setFontColor('#FFC01E');
+    sh.setFrozenRows(1);
+    sh.setColumnWidth(5, 260);
+  }
+  return sh;
+}
+
+/** Resumo dos cliques por página e por botão — rode quando quiser um panorama rápido. */
+function resumoCliques() {
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ABA_CLIQUES);
+  if (!sh || sh.getLastRow() < 2) { Logger.log('Sem cliques registrados.'); return; }
+  var linhas = sh.getRange(2, 1, sh.getLastRow() - 1, COLUNAS_CLIQUE.length).getValues();
+  var porPagina = {}, porBotao = {};
+  linhas.forEach(function (l) {
+    porPagina[l[1] || '(sem)'] = (porPagina[l[1] || '(sem)'] || 0) + 1;
+    porBotao[l[2] || '(sem)']  = (porBotao[l[2] || '(sem)']  || 0) + 1;
+  });
+  Logger.log('Total de cliques: ' + linhas.length);
+  Logger.log('Por página: ' + JSON.stringify(porPagina));
+  Logger.log('Por botão: '  + JSON.stringify(porBotao));
+}
+
 function _limpa(v) {
   return String(v == null ? '' : v).slice(0, 2000).trim();
 }
@@ -337,6 +400,7 @@ function _ok(msg) {
 function instalar() {
   Object.keys(ABAS).forEach(function (k) { _aba(ABAS[k]); });
   _aba(ABA_PADRAO);
+  _abaClique();
   doPost({ parameter: {
     nome: 'Teste do sistema', fone: '12999999999', cidade: 'Jacareí',
     assunto: 'Quero treinar', objetivo: 'Começar a correr',
@@ -350,5 +414,13 @@ function testarModal() {
     nome: 'Teste modal', fone: '12988887777',
     objetivo: 'hibrido', origem: 'site-modal'
   }) } });
+  Logger.log(r.getContent());
+}
+
+function testarClique() {
+  var r = doPost({ parameter: {
+    tipo: 'clique_whatsapp', origem: '#inicio', botao: 'Flutuante',
+    dispositivo: 'setup', referrer: '', campanha: ''
+  } });
   Logger.log(r.getContent());
 }
