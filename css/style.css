@@ -555,3 +555,34 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
   .mc__pill span,
   .mc__input { transition: none; }
 }
+
+/* ---------- BLOCO TIPOGRÁFICO (seções sem imagem) ---------- */
+.tipo-band{
+  background:var(--ink);
+  color:var(--paper);
+  padding:120px 0;
+}
+.tipo-band .wrap{max-width:900px}
+.tipo-band .rule{
+  width:80px;height:2px;background:var(--gold);
+  margin-bottom:28px;
+}
+.tipo-band .mono{
+  color:var(--gold);
+  display:block;
+  margin-bottom:20px;
+}
+.tipo-band h2{
+  font-size:clamp(2.1rem,5vw,3.6rem);
+  line-height:1.04;
+  letter-spacing:-.02em;
+  max-width:15ch;
+}
+.tipo-band p{
+  color:#C3CBDD;
+  max-width:52ch;
+  margin-top:24px;
+}
+@media (max-width:780px){
+  .tipo-band{padding:80px 0}
+}
