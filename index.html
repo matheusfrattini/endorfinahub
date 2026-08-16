@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/hill.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/mud.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/wall.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/corrida-grupo-rua.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">
 {
@@ -97,14 +97,14 @@
 
   <section class="hero" id="hero">
     <div class="layer a"><picture>
-      <source type="image/webp" srcset="assets/img/hill-800w.webp 800w, assets/img/hill.webp 1200w" sizes="100vw">
-      <source type="image/jpeg" srcset="assets/img/hill-800w.jpg 800w, assets/img/hill.jpg 1200w" sizes="100vw">
-      <img src="assets/img/hill.jpg" alt="Tropa Endorfina reunida depois de uma prova ao ar livre" width="1200" height="784" loading="eager" fetchpriority="high" decoding="async">
+      <source type="image/webp" srcset="assets/img/wall-800w.webp 800w, assets/img/wall.webp 1200w" sizes="100vw">
+      <source type="image/jpeg" srcset="assets/img/wall-800w.jpg 800w, assets/img/wall.jpg 1200w" sizes="100vw">
+      <img src="assets/img/wall.jpg" alt="Cinco atletas comemorando no topo de um obstáculo de madeira" width="1200" height="784" loading="eager" fetchpriority="high" decoding="async" style="object-position:center 65%">
     </picture></div>
     <div class="layer b"><picture>
-      <source type="image/webp" srcset="assets/img/mud-800w.webp 800w, assets/img/mud.webp 1200w" sizes="100vw">
-      <source type="image/jpeg" srcset="assets/img/mud-800w.jpg 800w, assets/img/mud.jpg 1200w" sizes="100vw">
-      <img src="assets/img/mud.jpg" alt="Atletas do Endorfina Hub em prova de obstáculos" width="1200" height="784" loading="eager" fetchpriority="high" decoding="async">
+      <source type="image/webp" srcset="assets/img/corrida-grupo-rua-800w.webp 800w, assets/img/corrida-grupo-rua.webp 900w" sizes="100vw">
+      <source type="image/jpeg" srcset="assets/img/corrida-grupo-rua-800w.jpg 800w, assets/img/corrida-grupo-rua.jpg 900w" sizes="100vw">
+      <img src="assets/img/corrida-grupo-rua.jpg" alt="Grupo de corrida do Endorfina reunido antes do treino na rua" width="900" height="1600" loading="eager" fetchpriority="high" decoding="async" style="object-position:center 40%">
     </picture></div>
     <div class="seamline" aria-hidden="true"></div>
     <div class="wrap hero-in">
@@ -135,7 +135,7 @@
       <div class="figure rv"><picture>
         <source type="image/webp" srcset="assets/img/rope-800w.webp 784w, assets/img/rope.webp 784w" sizes="(max-width: 780px) 100vw, 50vw">
         <source type="image/jpeg" srcset="assets/img/rope-800w.jpg 784w, assets/img/rope.jpg 784w" sizes="(max-width: 780px) 100vw, 50vw">
-        <img src="assets/img/rope.jpg" loading="lazy" decoding="async" alt="Atleta puxando corda em treino de força" width="784" height="1200">
+        <img src="assets/img/rope.jpg" loading="lazy" decoding="async" alt="Atleta puxando corda em treino de força" width="784" height="1200" style="object-position:center center">
       </picture><span class="stamp">Endorfina · 2026</span></div>
       <div class="rv">
         <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Quem somos</span>
@@ -188,16 +188,21 @@
 
   <!-- PRÓXIMOS EVENTOS -->
   <section>
-    <div class="wrap">
-      <div class="head rv">
+    <div class="wrap split wide-r">
+      <div class="figure card rv"><picture>
+        <source type="image/webp" srcset="assets/img/corrida-medalhas-800w.webp 800w, assets/img/corrida-medalhas.webp 1078w" sizes="(max-width: 780px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="assets/img/corrida-medalhas-800w.jpg 800w, assets/img/corrida-medalhas.jpg 1078w" sizes="(max-width: 780px) 100vw, 50vw">
+        <img src="assets/img/corrida-medalhas.jpg" loading="lazy" decoding="async" alt="Corredores do Endorfina com medalhas após prova de rua" width="1078" height="1386" style="object-position:center 30%">
+      </picture></div>
+      <div class="rv">
         <span class="mono">Agenda</span>
         <h2 class="d">Próximas experiências</h2>
         <p class="lede">Corrida, desafio e encontro. É onde o treino da semana vira história pra contar.</p>
-      </div>
-      <div class="ev-list">
-        <a class="ev rv" href="#experiencias"><span class="date mono">Sáb<br>14 Set</span><div><h3 class="d">Sunday Run — Jacareí</h3><p>8 km em ritmo de conversa · Todos os níveis · Café no final</p></div><span class="go">Quero correr <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        <a class="ev rv" href="#experiencias"><span class="date mono">Dom<br>29 Set</span><div><h3 class="d">Bravus Race · Tropa Endorfina</h3><p>Prova de obstáculos · Equipe Endorfina · Preparação nas 6 semanas anteriores</p></div><span class="go">Entrar na equipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        <a class="ev rv" href="#experiencias"><span class="date mono">Sex<br>11 Out</span><div><h3 class="d">Run Night Club</h3><p>Corrida noturna urbana + recovery e música na chegada</p></div><span class="go">Garantir vaga <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <div class="ev-list">
+          <a class="ev rv" href="#experiencias"><span class="date mono">Sáb<br>14 Set</span><div><h3 class="d">Sunday Run — Jacareí</h3><p>8 km em ritmo de conversa · Todos os níveis · Café no final</p></div><span class="go">Quero correr <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="ev rv" href="#experiencias"><span class="date mono">Dom<br>29 Set</span><div><h3 class="d">Bravus Race · Tropa Endorfina</h3><p>Prova de obstáculos · Equipe Endorfina · Preparação nas 6 semanas anteriores</p></div><span class="go">Entrar na equipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="ev rv" href="#experiencias"><span class="date mono">Sex<br>11 Out</span><div><h3 class="d">Run Night Club</h3><p>Corrida noturna urbana + recovery e música na chegada</p></div><span class="go">Garantir vaga <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -222,9 +227,9 @@
   <!-- CTA -->
   <section class="cta-band">
     <picture>
-      <source type="image/webp" srcset="assets/img/crowd-800w.webp 644w, assets/img/crowd.webp 644w" sizes="100vw">
-      <source type="image/jpeg" srcset="assets/img/crowd-800w.jpg 644w, assets/img/crowd.jpg 644w" sizes="100vw">
-      <img src="assets/img/crowd.jpg" loading="lazy" decoding="async" alt="" aria-hidden="true" width="644" height="1200">
+      <source type="image/webp" srcset="assets/img/mud-800w.webp 800w, assets/img/mud.webp 1200w" sizes="100vw">
+      <source type="image/jpeg" srcset="assets/img/mud-800w.jpg 800w, assets/img/mud.jpg 1200w" sizes="100vw">
+      <img src="assets/img/mud.jpg" loading="lazy" decoding="async" alt="" aria-hidden="true" width="1200" height="784" style="object-position:center 60%">
     </picture>
     <div class="wrap rv">
       <span class="mono" style="color:var(--gold)">Faça parte</span>
@@ -250,7 +255,7 @@
         <div class="figure wide rv"><picture>
           <source type="image/webp" srcset="assets/img/hill-800w.webp 800w, assets/img/hill.webp 1200w" sizes="(max-width: 780px) 100vw, 50vw">
           <source type="image/jpeg" srcset="assets/img/hill-800w.jpg 800w, assets/img/hill.jpg 1200w" sizes="(max-width: 780px) 100vw, 50vw">
-          <img src="assets/img/hill.jpg" loading="lazy" decoding="async" alt="Comunidade Endorfina reunida ao ar livre" width="1200" height="784">
+          <img src="assets/img/hill.jpg" loading="lazy" decoding="async" alt="Comunidade Endorfina reunida no alto de uma trilha, com a serra ao fundo" width="1200" height="784" style="object-position:center 55%">
         </picture></div>
         <div class="rv">
           <h3 class="d">Evolução de forma natural</h3>
@@ -292,6 +297,21 @@
   </section>
 
   <section>
+    <div class="wrap split">
+      <div class="figure rv"><picture>
+        <source type="image/webp" srcset="assets/img/comunidade-patio-800w.webp 800w, assets/img/comunidade-patio.webp 1280w" sizes="(max-width: 780px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="assets/img/comunidade-patio-800w.jpg 800w, assets/img/comunidade-patio.jpg 1280w" sizes="(max-width: 780px) 100vw, 50vw">
+        <img src="assets/img/comunidade-patio.jpg" loading="lazy" decoding="async" alt="Grupo reunido no pátio após treino ao ar livre" width="1280" height="1280" style="object-position:center 45%">
+      </picture></div>
+      <div class="rv">
+        <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Comunidade</span>
+        <h2 class="d">Ninguém treina<br>sozinho aqui.</h2>
+        <p class="lede" style="margin-top:22px">Depois do treino, a tropa fica. É no pátio, no grupo do WhatsApp e nos eventos que a comunidade Endorfina se sustenta — gente que puxa gente pra próxima experiência.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="wrap">
       <div class="head rv"><span class="mono">Parceiros</span><h2 class="d">Quem caminha com a gente</h2></div>
       <div class="partners rv"><span>Decathlon</span><span>GR Power</span><span>Jumper</span><span>+ sua marca aqui</span></div>
@@ -311,6 +331,17 @@
         <h1 class="d">Escolha por onde<br>você quer começar.</h1>
         <p class="lede">Do acompanhamento à distância ao treino presencial em pequenos grupos. Tudo parte de uma avaliação do seu ponto atual — não de uma planilha pronta.</p>
       </div>
+      <div class="split" style="margin-top:64px">
+        <div class="figure wide rv"><picture>
+          <source type="image/webp" srcset="assets/img/calistenia-grupo-800w.webp 800w, assets/img/calistenia-grupo.webp 1280w" sizes="(max-width: 780px) 100vw, 50vw">
+          <source type="image/jpeg" srcset="assets/img/calistenia-grupo-800w.jpg 800w, assets/img/calistenia-grupo.jpg 1280w" sizes="(max-width: 780px) 100vw, 50vw">
+          <img src="assets/img/calistenia-grupo.jpg" loading="lazy" decoding="async" alt="Alunos do Endorfina reunidos sob a estrutura de calistenia" width="1280" height="854" style="object-position:center 40%">
+        </picture></div>
+        <div class="rv">
+          <h3 class="d">Método antes de planilha</h3>
+          <p class="lede" style="margin-top:16px">Cada serviço abaixo parte da mesma lógica: entender seu ponto de partida antes de prescrever qualquer coisa.</p>
+        </div>
+      </div>
       <div class="grid-3">
         <article class="cell rv"><h3 class="d">Consultoria online</h3><p>Treinamento personalizado e acompanhamento à distância, com ajustes conforme sua semana real.</p><p class="mono" style="margin-top:18px;color:var(--gold-deep)">A partir de R$ [valor] /mês</p></article>
         <article class="cell rv"><h3 class="d">Avaliação física</h3><p>Análise individual para direcionar o treinamento: composição, condicionamento e histórico de lesão.</p><p class="mono" style="margin-top:18px;color:var(--gold-deep)">R$ [valor] · sessão</p></article>
@@ -320,6 +351,27 @@
         <article class="cell rv"><h3 class="d">Grupos de corrida</h3><p>Treinos coletivos semanais em Jacareí e Campinas, abertos a todos os níveis.</p><p class="mono" style="margin-top:18px;color:var(--gold-deep)">Consulte a agenda</p></article>
       </div>
       <div class="btn-row rv"><a href="#contato" class="btn btn-gold">Quero saber mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="figure rv"><picture>
+        <source type="image/webp" srcset="assets/img/corrida-solo-800w.webp 800w, assets/img/corrida-solo.webp 1070w" sizes="(max-width: 780px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="assets/img/corrida-solo-800w.jpg 800w, assets/img/corrida-solo.jpg 1070w" sizes="(max-width: 780px) 100vw, 50vw">
+        <img src="assets/img/corrida-solo.jpg" loading="lazy" decoding="async" alt="Corredor em treino individual em rua arborizada" width="1070" height="1600" style="object-position:center center">
+      </picture></div>
+      <div class="rv">
+        <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Grupos de corrida</span>
+        <h2 class="d">Correr em grupo<br>rende mais quilômetro.</h2>
+        <p class="lede" style="margin-top:22px">Treinos coletivos semanais em Jacareí e Campinas, com pace pra todo mundo — do primeiro 5 km à meia maratona. Sozinho você vai rápido; em grupo, você vai longe.</p>
+        <div class="figure rv" style="max-width:220px;margin-top:28px"><picture>
+          <source type="image/webp" srcset="assets/img/corrida-dupla-800w.webp 800w, assets/img/corrida-dupla.webp 1066w" sizes="220px">
+          <source type="image/jpeg" srcset="assets/img/corrida-dupla-800w.jpg 800w, assets/img/corrida-dupla.jpg 1066w" sizes="220px">
+          <img src="assets/img/corrida-dupla.jpg" loading="lazy" decoding="async" alt="Dois corredores treinando lado a lado" width="1066" height="1600" style="object-position:center 35%">
+        </picture></div>
+        <div class="btn-row"><a href="#contato" class="btn btn-ink">Ver a agenda de corrida <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
     </div>
   </section>
 
@@ -351,6 +403,24 @@
         <h1 class="d">O treino é o meio.<br>A experiência é o ponto.</h1>
         <p class="lede">Meet ups, corridas noturnas, provas de obstáculo e vivências outdoor. Aqui a agenda é parte do método.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <picture>
+      <source type="image/webp" srcset="assets/img/crowd-800w.webp 644w, assets/img/crowd.webp 644w" sizes="100vw">
+      <source type="image/jpeg" srcset="assets/img/crowd-800w.jpg 644w, assets/img/crowd.jpg 644w" sizes="100vw">
+      <img src="assets/img/crowd.jpg" loading="lazy" decoding="async" alt="" aria-hidden="true" width="644" height="1200" style="object-position:center 40%">
+    </picture>
+    <div class="wrap rv">
+      <span class="mono" style="color:var(--gold)">Escala</span>
+      <h2 class="d" style="color:var(--paper);margin-top:18px">Centenas de pessoas.<br>Uma tropa só.</h2>
+      <p style="color:#C3CBDD">De corrida de rua a prova de obstáculo — a agenda que junta a comunidade fora da tela.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
       <div class="ev-list">
         <a class="ev rv" href="#contato"><span class="date mono">Sáb<br>14 Set</span><div><h3 class="d">Sunday Run — Jacareí</h3><p>8 km em ritmo de conversa · Todos os níveis · Ponto de encontro: [local]</p></div><span class="go">Inscrever <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         <a class="ev rv" href="#contato"><span class="date mono">Dom<br>29 Set</span><div><h3 class="d">Bravus Race · Tropa Endorfina</h3><p>Prova de obstáculos · Equipe Endorfina · [local]</p></div><span class="go">Inscrever <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
@@ -361,37 +431,59 @@
   </section>
 
   <section class="dark">
-    <div class="wrap">
-      <div class="head rv"><span class="mono">Já realizadas</span><h2 class="d">O que a tropa já viveu</h2></div>
-      <div class="split" style="margin-top:52px">
-        <div class="figure rv"><picture>
-          <source type="image/webp" srcset="assets/img/mud-800w.webp 800w, assets/img/mud.webp 1200w" sizes="(max-width: 780px) 100vw, 50vw">
-          <source type="image/jpeg" srcset="assets/img/mud-800w.jpg 800w, assets/img/mud.jpg 1200w" sizes="(max-width: 780px) 100vw, 50vw">
-          <img src="assets/img/mud.jpg" loading="lazy" decoding="async" alt="Equipe Endorfina em prova de obstáculos" width="1200" height="784">
-        </picture><span class="stamp">Bravus Race · Speed</span></div>
-        <div class="figure rv"><picture>
-          <source type="image/webp" srcset="assets/img/wall-800w.webp 800w, assets/img/wall.webp 1200w" sizes="(max-width: 780px) 100vw, 50vw">
-          <source type="image/jpeg" srcset="assets/img/wall-800w.jpg 800w, assets/img/wall.jpg 1200w" sizes="(max-width: 780px) 100vw, 50vw">
-          <img src="assets/img/wall.jpg" loading="lazy" decoding="async" alt="Atletas no topo do muro em prova de obstáculos" width="1200" height="784">
-        </picture><span class="stamp">Endorfina Challenge</span></div>
+    <div class="wrap split wide-r">
+      <div class="figure card rv"><picture>
+        <source type="image/webp" srcset="assets/img/ocr-lama-retrato-800w.webp 800w, assets/img/ocr-lama-retrato.webp 1600w" sizes="(max-width: 780px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="assets/img/ocr-lama-retrato-800w.jpg 800w, assets/img/ocr-lama-retrato.jpg 1600w" sizes="(max-width: 780px) 100vw, 50vw">
+        <img src="assets/img/ocr-lama-retrato.jpg" loading="lazy" decoding="async" alt="Atleta emergindo do obstáculo de lama" width="1600" height="1066" style="object-position:center center">
+      </picture><span class="stamp">Bravus Race</span></div>
+      <div class="rv">
+        <span class="mono" style="color:var(--gold);display:block;margin-bottom:18px">Card do Bravus Race</span>
+        <h2 class="d">Prova de obstáculo?<br>A tropa vai junto.</h2>
+        <p class="lede" style="margin-top:20px">Seis semanas de preparação específica antes da prova, treinando em equipe. Ninguém encara a lama, o muro ou a corda sozinho.</p>
+        <div class="btn-row"><a href="#contato" class="btn btn-gold">Entrar na equipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap split wide-r">
-      <div class="rv">
-        <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Recovery</span>
-        <h2 class="d">Recuperar também<br>é treinar.</h2>
-        <p class="lede" style="margin-top:20px">Uma experiência completa de recuperação e preparação para o próximo desafio — sozinho ou em grupo, depois das provas e dos ciclos mais pesados.</p>
-        <div class="partners" style="margin-top:28px"><span>Bota pneumática</span><span>Sauna</span><span>Banheira de gelo</span><span>Terapias</span><span>Biohacking</span></div>
-        <div class="btn-row"><a href="#contato" class="btn btn-ink">Agendar recovery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="wrap">
+      <div class="head rv"><span class="mono">Já realizadas</span><h2 class="d">O que a tropa já viveu</h2></div>
+      <div class="split wide-r" style="margin-top:52px">
+        <div class="figure rv"><picture>
+          <source type="image/webp" srcset="assets/img/ocr-selfie-trilha-800w.webp 800w, assets/img/ocr-selfie-trilha.webp 960w" sizes="(max-width: 780px) 100vw, 50vw">
+          <source type="image/jpeg" srcset="assets/img/ocr-selfie-trilha-800w.jpg 800w, assets/img/ocr-selfie-trilha.jpg 960w" sizes="(max-width: 780px) 100vw, 50vw">
+          <img src="assets/img/ocr-selfie-trilha.jpg" loading="lazy" decoding="async" alt="Grupo comemorando em trilha após prova de obstáculos" width="960" height="1280" style="object-position:center 35%">
+        </picture><span class="stamp">Endorfina Challenge</span></div>
+        <div class="rv">
+          <p class="lede">Cada prova de obstáculo, cada corrida noturna, cada meet up vira memória de tropa — e motivo pra chamar mais gente pra próxima.</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
       <div class="figure rv"><picture>
-        <source type="image/webp" srcset="assets/img/crowd-800w.webp 644w, assets/img/crowd.webp 644w" sizes="(max-width: 780px) 100vw, 50vw">
-        <source type="image/jpeg" srcset="assets/img/crowd-800w.jpg 644w, assets/img/crowd.jpg 644w" sizes="(max-width: 780px) 100vw, 50vw">
-        <img src="assets/img/crowd.jpg" loading="lazy" decoding="async" alt="Comunidade Endorfina reunida em evento" width="644" height="1200">
+        <source type="image/webp" srcset="assets/img/ocr-barra-suspensao-800w.webp 800w, assets/img/ocr-barra-suspensao.webp 854w" sizes="(max-width: 780px) 100vw, 50vw">
+        <source type="image/jpeg" srcset="assets/img/ocr-barra-suspensao-800w.jpg 800w, assets/img/ocr-barra-suspensao.jpg 854w" sizes="(max-width: 780px) 100vw, 50vw">
+        <img src="assets/img/ocr-barra-suspensao.jpg" loading="lazy" decoding="async" alt="Atleta suspenso em obstáculo de barra" width="854" height="1280" style="object-position:center center">
       </picture></div>
+      <div class="rv">
+        <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Além da agenda</span>
+        <h2 class="d">Experiência é o que<br>sustenta o treino.</h2>
+        <p class="lede" style="margin-top:22px">Prova, recuperação, rotina — três frentes que só funcionam juntas. O que vem depois de cada desafio importa tanto quanto o desafio em si.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="mono" style="color:var(--gold-deep);display:block;margin-bottom:18px">Recovery</span>
+      <h2 class="d">Recuperar também<br>é treinar.</h2>
+      <p class="lede" style="margin-top:20px">Uma experiência completa de recuperação e preparação para o próximo desafio — sozinho ou em grupo, depois das provas e dos ciclos mais pesados.</p>
+      <div class="partners" style="margin-top:28px"><span>Bota pneumática</span><span>Sauna</span><span>Banheira de gelo</span><span>Terapias</span><span>Biohacking</span></div>
+      <div class="btn-row"><a href="#contato" class="btn btn-ink">Agendar recovery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </section>
 </div>
