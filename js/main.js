@@ -4,7 +4,7 @@
     whatsapp:   '5500000000000',                    // DDI + DDD + número, só dígitos
     instagram:  'https://instagram.com/endorfina.hub',
     grupo:      '',                                 // link do grupo de WhatsApp
-    email:      'contato@endorfinahub.com.br',
+    email:      'endorfina10hub@gmail.com',
     sheetUrl:   'COLE_AQUI_A_URL_DO_APPS_SCRIPT',
     cidades:    'Campinas e região — SP',
     siteUrl:    'https://endorfinahub.com.br'      // domínio final de produção — confirmar com o cliente
