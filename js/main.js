@@ -1,11 +1,11 @@
 (function(){
   /* ===== CONFIGURAÇÃO DO CLIENTE — editar só aqui ===== */
   var CFG = {
-    whatsapp:   '5500000000000',                    // DDI + DDD + número, só dígitos
+    whatsapp:   '5519981742371',                    // DDI + DDD + número, só dígitos
     instagram:  'https://instagram.com/endorfina.hub',
     grupo:      '',                                 // link do grupo de WhatsApp
     email:      'endorfina10hub@gmail.com',
-    sheetUrl:   'COLE_AQUI_A_URL_DO_APPS_SCRIPT',
+    sheetUrl:   'https://script.google.com/macros/s/AKfycbzVQUj9LrC_iHYI6XZn0plpIigjfn6IuX3readDvH6ya226LzY4SLFXhgDwCKm8lF0a/exec',
     cidades:    'Campinas e região — SP',
     siteUrl:    'https://endorfinahub.com.br'      // domínio final de produção — confirmar com o cliente
   };
