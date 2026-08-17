@@ -6,18 +6,18 @@
     grupo:      '',                                 // link do grupo de WhatsApp
     email:      'contato@endorfinahub.com.br',
     sheetUrl:   'COLE_AQUI_A_URL_DO_APPS_SCRIPT',
-    cidades:    'Jacareí e Campinas — SP',
+    cidades:    'Campinas e região — SP',
     siteUrl:    'https://endorfinahub.com.br'      // domínio final de produção — confirmar com o cliente
   };
 
   var PAGES=['inicio','hub','treinos','experiencias','contato'];
   var TITLES={inicio:'Endorfina Hub — Training Club Híbrido',hub:'O Hub — Endorfina Hub',treinos:'O que fazemos — Endorfina Hub',experiencias:'Experiências — Endorfina Hub',contato:'Faça parte — Endorfina Hub'};
   var DESCS={
-    inicio:'Training Club Híbrido em Jacareí e Campinas: corrida, calistenia, treino híbrido, recovery e lifestyle em comunidade. Treine, supere-se e viva a experiência.',
+    inicio:'Training Club Híbrido em Campinas e região: corrida, calistenia, treino híbrido, recovery e lifestyle em comunidade. Treine, supere-se e viva a experiência.',
     hub:'Conheça o Endorfina Hub: um ecossistema de movimento que reúne treinadores, modalidades e experiências para evoluir de forma natural — nunca sozinho.',
     treinos:'Consultoria online, avaliação física, personal presencial, treino híbrido, recovery e grupos de corrida. Escolha por onde você quer começar a treinar.',
-    experiencias:'Corridas, provas de obstáculo, meet ups e recovery em grupo. Veja a agenda de experiências do Endorfina Hub em Jacareí e Campinas.',
-    contato:'Fale com o time do Endorfina Hub pelo WhatsApp e comece a treinar em Jacareí ou Campinas. Resposta em até 1 dia útil.'
+    experiencias:'Corridas, provas de obstáculo, meet ups e recovery em grupo. Veja a agenda de experiências do Endorfina Hub em Campinas e região.',
+    contato:'Fale com o time do Endorfina Hub pelo WhatsApp e comece a treinar em Campinas. Resposta em até 1 dia útil.'
   };
   var CRUMBS={inicio:'Início',hub:'O Hub',treinos:'O que fazemos',experiencias:'Experiências',contato:'Contato'};
   var hdr=document.getElementById('hdr'), menu=document.getElementById('menu'), burger=document.getElementById('burger');

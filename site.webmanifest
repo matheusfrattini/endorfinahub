@@ -1,7 +1,7 @@
 {
   "name": "Endorfina Hub",
   "short_name": "Endorfina Hub",
-  "description": "Training Club Híbrido em Jacareí e Campinas — corrida, calistenia, treino híbrido, recovery e lifestyle em comunidade.",
+  "description": "Training Club Híbrido em Campinas e região — corrida, calistenia, treino híbrido, recovery e lifestyle em comunidade.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

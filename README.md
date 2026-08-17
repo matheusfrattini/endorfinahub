@@ -1,6 +1,6 @@
 # Endorfina Hub — Site
 
-Training Club Híbrido · Jacareí + Campinas
+Training Club Híbrido · Campinas e região
 
 ## Estrutura
 

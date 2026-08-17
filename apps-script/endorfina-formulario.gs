@@ -402,7 +402,7 @@ function instalar() {
   _aba(ABA_PADRAO);
   _abaClique();
   doPost({ parameter: {
-    nome: 'Teste do sistema', fone: '12999999999', cidade: 'Jacareí',
+    nome: 'Teste do sistema', fone: '12999999999', cidade: 'Campinas',
     assunto: 'Quero treinar', objetivo: 'Começar a correr',
     msg: 'Linha de teste — pode apagar.', origem: '#contato'
   }});
