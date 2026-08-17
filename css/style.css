@@ -548,9 +548,14 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
 .tipo-band{
   background:var(--ink);
   color:var(--paper);
-  padding:120px 0;
+  padding:140px 0;
 }
 .tipo-band .wrap{max-width:900px}
+.tipo-band .wrap.cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+}
 .tipo-band .rule{
   width:80px;height:2px;background:var(--gold);
   margin-bottom:28px;
@@ -566,6 +571,9 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
   letter-spacing:-.02em;
   max-width:15ch;
 }
+.tipo-band .cols h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);
+}
 .tipo-band p{
   color:#C3CBDD;
   max-width:52ch;
@@ -573,6 +581,7 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
 }
 @media (max-width:780px){
   .tipo-band{padding:80px 0}
+  .tipo-band .wrap.cols{grid-template-columns:1fr;gap:56px}
 }
 
 /* ---------- TIME ---------- */
