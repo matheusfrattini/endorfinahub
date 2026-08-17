@@ -1,4 +1,4 @@
-var AVISAR_EMAIL    = 'endorfinahub@gmail.com';
+var AVISAR_EMAIL    = 'endorfina10hub@gmail.com';
 var RELATORIO_EMAIL = 'matheusfrattinids@gmail.com';
 var ASSUNTO_EMAIL   = '[Site] Novo contato — Endorfina Hub';
 var FUSO            = 'America/Sao_Paulo';
