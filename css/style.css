@@ -298,7 +298,10 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
   .split.wide-r{grid-template-columns:1fr}
   .ev{grid-template-columns:1fr;gap:10px}
   .ev .go{margin-top:6px}
-  .hero{--seam:58%}
+  .hero .layer.a{display:none}
+  .hero .layer.b{clip-path:none}
+  .hero .layer.b::after{display:none}
+  .hero .seamline{display:none}
   .hero-tags{display:none}
   .fgrid{grid-template-columns:1fr}
   .wa{padding:14px;border-radius:50%}
