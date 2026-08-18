@@ -253,8 +253,15 @@
       resetar();
       abertoEm = Date.now();
       dlg.showModal();
+      document.body.style.overflow = 'hidden';
       setTimeout(function () { document.getElementById('mc-nome').focus(); }, 60);
     }
+
+    /* fecha por X, clique fora ou Esc (nativo do <dialog>) sempre dispara
+       o evento "close" — um único lugar pra destravar o scroll do fundo */
+    dlg.addEventListener('close', function () {
+      document.body.style.overflow = '';
+    });
 
     function resetar() {
       form.hidden = false;
