@@ -171,6 +171,12 @@
     /* rótulo legível do botão, para você saber qual converte mais */
     function rotulo(a) {
       if (a.classList.contains('wa')) return 'Flutuante';
+      if (a.classList.contains('ev__oficial')) {
+        var card = a.closest('.ev');
+        var h3 = card ? card.querySelector('h3') : null;
+        var titulo = h3 ? (h3.textContent || '').replace(/\s+/g, ' ').trim() : '';
+        return (titulo ? 'Jumper · ' + titulo : 'Jumper · (evento não identificado)').slice(0, 60);
+      }
       var t = (a.textContent || '').replace(/\s+/g, ' ').trim();
       return t ? t.slice(0, 60) : 'Link WhatsApp';
     }
@@ -211,7 +217,7 @@
 
     /* delegação: pega inclusive links criados depois pelo CFG */
     document.addEventListener('click', function (e) {
-      var a = e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+      var a = e.target.closest ? e.target.closest('a[href*="wa.me"], a.ev__oficial') : null;
       if (!a) return;
       registrar(a);
       /* sem preventDefault: o link segue normalmente */
