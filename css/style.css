@@ -100,7 +100,7 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
 .btn-line{border-color:currentColor;color:inherit}
 .btn-line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .dark .btn-line:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--mag);outline-offset:3px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,.ev:focus-visible{outline:3px solid var(--mag);outline-offset:3px}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
 
 /* ---------- HERO (signature: seam híbrida) ---------- */
@@ -195,6 +195,7 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
 .ev{
   display:grid;grid-template-columns:120px 1fr auto;gap:28px;align-items:center;
   padding:26px 4px;border-bottom:1px solid var(--line);transition:padding .35s var(--ease),background .35s;
+  cursor:pointer;
 }
 .dark .ev{border-color:var(--line-dark)}
 .ev:hover{padding-inline:18px;background:rgba(255,192,30,.09)}
@@ -205,6 +206,20 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
 .ev .go{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.84rem;white-space:nowrap}
 .ev .go svg{width:14px;height:14px;transition:transform .3s var(--ease)}
 .ev:hover .go svg{transform:translateX(5px)}
+.ev__oficial{
+  display:inline-block;
+  margin-top:10px;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  color:var(--gold-deep);
+  padding-bottom:2px;
+  background-image:linear-gradient(currentColor,currentColor);
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  background-size:0 1px;
+  transition:background-size .3s var(--ease);
+}
+.ev__oficial:hover,.ev__oficial:focus-visible{background-size:100% 1px}
 
 
 /* ---------- DEPOIMENTOS ---------- */

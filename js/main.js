@@ -67,6 +67,33 @@
     if(PAGES.indexOf(id)>-1){ e.preventDefault(); if(location.hash!=='#'+id){location.hash=id;} else {go(id);} }
   });
 
+  /* ---- cards de evento (.ev): clique/Enter/Espaço em qualquer parte do
+     card navegam para data-href, exceto o link "Inscrição oficial"
+     (Jumper), que é um <a> de verdade e cuida da própria navegação ---- */
+  function irParaCard(card){
+    var id=card.getAttribute('data-href').replace('#','');
+    if(PAGES.indexOf(id)>-1){ if(location.hash!=='#'+id){location.hash=id;} else {go(id);} }
+  }
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.ev__oficial')) return;
+    var card=e.target.closest('.ev[data-href]'); if(!card) return;
+    irParaCard(card);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Enter' && e.key!==' ') return;
+    if(e.target.closest('.ev__oficial')) return;
+    var card=e.target.closest('.ev[data-href]'); if(!card) return;
+    e.preventDefault();
+    irParaCard(card);
+  });
+
+  /* ---- ev__oficial: impede que o clique no link da Jumper também dispare
+     a navegação do card .ev pai ---- */
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a.ev__oficial'); if(!el) return;
+    e.stopPropagation();
+  },false);
+
   /* ---- header state ---- */
   function onScroll(){
     hdr.classList.toggle('solid',window.scrollY>18);
