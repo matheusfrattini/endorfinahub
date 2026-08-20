@@ -146,11 +146,11 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var f=new FormData(form), note=document.getElementById('formnote');
-    if(!f.get('nome')||!f.get('fone')){ note.textContent='Preencha nome e WhatsApp para continuar.'; note.style.color='#FF2D78'; return; }
-    if(!CFG.whatsapp){ note.textContent='WhatsApp do Hub não configurado. Avise o time.'; note.style.color='#FF2D78'; return; }
+    if(!f.get('nome')||!f.get('fone')){ note.textContent='Preencha nome e WhatsApp para continuar.'; note.style.color='var(--gold-mid)'; return; }
+    if(!CFG.whatsapp){ note.textContent='WhatsApp do Hub não configurado. Avise o time.'; note.style.color='var(--gold-mid)'; return; }
     var txt='Olá, Endorfina Hub! Sou '+f.get('nome')+' ('+f.get('cidade')+'). Meu objetivo: '+f.get('objetivo')+'.'+(f.get('msg')?' '+f.get('msg'):'')+' Meu WhatsApp: '+f.get('fone');
     window.open('https://wa.me/'+CFG.whatsapp+'?text='+encodeURIComponent(txt),'_blank');
-    note.textContent='Abrimos o WhatsApp com sua mensagem pronta. É só enviar.'; note.style.color='#FFC01E';
+    note.textContent='Abrimos o WhatsApp com sua mensagem pronta. É só enviar.'; note.style.color='var(--gold)';
   });
 
   /* ==================================================================
