@@ -242,7 +242,7 @@
     var OBJETIVOS = {
       corrida:    'corrida',
       calistenia: 'calistenia',
-      hibrido:    'treino híbrido',
+      hibrido:    'OCR',
       lifestyle:  'lifestyle',
       recovery:   'recovery'
     };
