@@ -1,10 +1,13 @@
 (function(){
-  /* ===== CONFIGURAÇÃO DO CLIENTE — editar só aqui ===== */
-  var CFG = {
+  /* ===== CONFIGURAÇÃO DO CLIENTE — editar em js/config.js ===== */
+  var CFG = window.ENDORFINA_CFG || {
     whatsapp:   '5519981742371',                    // DDI + DDD + número, só dígitos
     instagram:  'https://instagram.com/endorfina.hub',
     grupo:      '',                                 // link do grupo de WhatsApp
     email:      'endorfina10hub@gmail.com',
+    parceiroDecathlon: '',
+    parceiroGrPower:   '',
+    parceiroJumper:    '',
     sheetUrl:   'https://script.google.com/macros/s/AKfycbzVQUj9LrC_iHYI6XZn0plpIigjfn6IuX3readDvH6ya226LzY4SLFXhgDwCKm8lF0a/exec',
     cidades:    'Campinas e região — SP',
     siteUrl:    'https://endorfinahub.com.br'      // domínio final de produção — confirmar com o cliente
@@ -60,11 +63,25 @@
     var sc=document.getElementById('ld-breadcrumb');
     if(sc) sc.textContent = JSON.stringify(ld);
   }
-  window.addEventListener('hashchange',function(){go(location.hash.replace('#',''));});
+  /* âncora interna = hash que NÃO é página mas existe como elemento na página
+     (ex.: #f-recovery, vindo das tags do hero). Não deve acionar o router. */
+  function ancoraInterna(id){
+    return !!id && PAGES.indexOf(id)<0 && !!document.getElementById(id);
+  }
+  function rolarPara(id){
+    var el=document.getElementById(id); if(!el) return;
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  window.addEventListener('hashchange',function(){
+    var id=location.hash.replace('#','');
+    if(ancoraInterna(id)){ rolarPara(id); return; }
+    go(id);
+  });
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a) return;
     var id=a.getAttribute('href').slice(1);
-    if(PAGES.indexOf(id)>-1){ e.preventDefault(); if(location.hash!=='#'+id){location.hash=id;} else {go(id);} }
+    if(PAGES.indexOf(id)>-1){ e.preventDefault(); if(location.hash!=='#'+id){location.hash=id;} else {go(id);} return; }
+    if(ancoraInterna(id)){ e.preventDefault(); history.replaceState(null,'','#'+id); rolarPara(id); }
   });
 
   /* ---- cards de evento (.ev): clique/Enter/Espaço em qualquer parte do
@@ -108,17 +125,6 @@
     burger.setAttribute('aria-expanded',o);
     if(o){hdr.classList.add('on-dark','solid');}else{onScroll();}
   });
-
-  /* ---- hero: costura híbrida ---- */
-  var hero=document.getElementById('hero');
-  if(hero && matchMedia('(hover:hover)').matches){
-    hero.addEventListener('mousemove',function(e){
-      var r=hero.getBoundingClientRect();
-      var p=((e.clientX-r.left)/r.width)*100;
-      hero.style.setProperty('--seam', Math.max(26,Math.min(76, 26+p*0.5+13))+'%');
-    });
-    hero.addEventListener('mouseleave',function(){hero.style.setProperty('--seam','52%');});
-  }
 
   /* ---- CFG: preenche links marcados com data-cfg ---- */
   function applyCFG(){
@@ -388,5 +394,11 @@
   })();
 
   applyCFG();
-  go(location.hash.replace('#','')||'inicio');
+  var hashInicial = location.hash.replace('#','');
+  if(hashInicial && PAGES.indexOf(hashInicial)<0 && document.getElementById(hashInicial)){
+    go('inicio');
+    setTimeout(function(){ rolarPara(hashInicial); },60);
+  } else {
+    go(hashInicial||'inicio');
+  }
 })();

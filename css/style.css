@@ -105,22 +105,12 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
 .hero{
   position:relative;height:100svh;min-height:600px;
   background:var(--ink);overflow:hidden;padding:0;
-  --seam:52%;
 }
 .hero .layer{position:absolute;inset:0}
 .hero .layer img{width:100%;height:100%;object-fit:cover}
-.hero .layer.b{
-  clip-path:polygon(var(--seam) 0,100% 0,100% 100%,calc(var(--seam) - 14%) 100%);
-  transition:clip-path .5s var(--ease);
-}
-.hero .layer::after{content:"";position:absolute;inset:0}
-.hero .layer.a::after{background:linear-gradient(105deg,rgba(0,0,0,.9) 12%,rgba(0,0,0,.45) 60%)}
-.hero .layer.b::after{background:linear-gradient(255deg,rgba(0,0,0,.82) 10%,rgba(0,0,0,.3) 70%)}
-.hero .seamline{
-  position:absolute;top:-10%;left:var(--seam);height:120%;width:2px;background:var(--gold);
-  transform:rotate(6.4deg) translateX(-1px);transform-origin:top center;opacity:.9;
-  transition:left .5s var(--ease);
-  box-shadow:0 0 30px rgba(255,206,55,.55);
+.hero .layer::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(0,0,0,.88) 8%,rgba(0,0,0,.42) 62%,rgba(0,0,0,.62) 100%);
 }
 .hero-in{
   position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
@@ -134,11 +124,19 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
   position:absolute;top:0;right:0;display:flex;flex-direction:column;gap:10px;align-items:flex-end;
   text-align:right;padding-top:14vh;
 }
-.hero-tags span{
+.hero-tags a{
   font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--paper);background:rgba(0,0,0,.42);border:1px solid var(--line-dark);
   padding:7px 12px;backdrop-filter:blur(6px);
+  transition:color .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease);
 }
+.hero-tags a:hover,.hero-tags a:focus-visible{
+  color:var(--ink);background:var(--gold);border-color:var(--gold);
+}
+
+/* âncoras das modalidades: compensa o header fixo de 72px */
+.grid-3 > .cell[id]{scroll-margin-top:104px}
+html{scroll-behavior:smooth}
 .scrollcue{position:absolute;bottom:26px;right:28px;z-index:4;display:flex;align-items:center;gap:10px;color:#9A9A9A}
 .scrollcue i{display:block;width:44px;height:1px;background:currentColor;position:relative;overflow:hidden}
 .scrollcue i::after{content:"";position:absolute;inset:0;background:var(--gold);animation:sweep 2.4s var(--ease) infinite}
@@ -229,12 +227,13 @@ header.on-dark .menu a:hover,header.on-dark .menu a.active{color:var(--paper)}
 
 /* ---------- PARCEIROS ---------- */
 .partners{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
-.partners span{
+.partners span,.partners a{
+  display:inline-block;
   border:1px solid var(--line);padding:16px 26px;
   font-family:'Archivo';font-variation-settings:'wdth' 112,'wght' 700;text-transform:uppercase;
   font-size:.92rem;color:var(--ash);transition:.3s var(--ease);
 }
-.partners span:hover{color:var(--ink);border-color:var(--ink)}
+.partners span:hover,.partners a:hover,.partners a:focus-visible{color:var(--ink);border-color:var(--ink)}
 
 /* ---------- FORM ---------- */
 .form{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
@@ -311,10 +310,6 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
   .split.wide-r{grid-template-columns:1fr}
   .ev{grid-template-columns:1fr;gap:10px}
   .ev .go{margin-top:6px}
-  .hero .layer.a{display:none}
-  .hero .layer.b{clip-path:none}
-  .hero .layer.b::after{display:none}
-  .hero .seamline{display:none}
   .hero-tags{display:none}
   .fgrid{grid-template-columns:1fr}
   .wa{padding:14px;border-radius:50%}
@@ -618,7 +613,8 @@ footer{background:var(--ink);color:var(--paper);padding:72px 0 34px}
 /* ---------- TIME ---------- */
 .time-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(240px,320px));
+  justify-content:center;
   gap:28px;
 }
 .time-card figure{
